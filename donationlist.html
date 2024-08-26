@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기부 사이트 모음</title>
+    <style>
+        div {
+            border: 0px solid black;
+        }
+
+        .container {
+            padding-top: 80px;
+            margin: auto;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navigation {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            height: 80px;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            background-color: rgb(50, 46, 41);
+        }
+
+        .navigation-logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+
+        .navigation-center {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            height: 100%;
+        }
+
+        .logo-img {
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding-bottom: 70px;
+            border-bottom: 0px solid black;
+        }
+
+        .donation-list > div{
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        .donation-card{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            height: 80px;
+        }
+
+        .card-left{
+            padding-left: 50px;
+        }
+
+        .donation-card > a {
+            height: 60%;
+        }
+
+        .donation-card > a > img{
+            height: 100%;
+        }
+
+        .blank{
+            border-top: 1px solid black ;
+            height: 100px;
+        }
+
+        .main-last{
+            height: 150px;
+            background-color: #3b3636;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <div class="navigation-logo">
+                <a class="logo-box" href="./index.html">
+                    <img class="logo-img" src="./resources/images/log.png" alt="">
+                </a>
+                <a href="./index.html">전국 무료 급식소 포털</a>
+            </div>
+            <div class="navigation-center">
+                <a href="./nowmap.html">내 주변 급식소</a>
+                <a href="./cafeteriabyregion.html">지역별 급식소</a>
+                <a href="./donationlist.html">기부 관련 사이트</a>
+            </div>
+            <div class="navigation-login">
+                <a href="">로그인/회원가입</a>
+            </div>
+        </div>
+        <div class="title">
+            <h1>기부 관련 사이트 리스트</h1>
+        </div>
+        <div class="donation-list">
+            <div class="donation-card">
+                <a href="http://www.doumnet.net/" target="_blank">
+                    <img src="./resources/images/donation1.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• (주)도움과나눔</h4>
+                    <span>모금과 기부 분야의 비영리 전문컨설팅 기업, 비영리기관, NGO등의 실무자들을 위한 교육, 모금지원 사업</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://www.donorscamp.org/index.do" target="_blank">
+                    <img src="./resources/images/donation2.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• CJ도너스캠프</h4>
+                    <span>CJ나눔재단에서 운영하는 소외된 어린이 및 청소년을 위해 만들어져 다양한 교육 프로그램을 지원</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://foundation.lg.or.kr/" target="_blank">
+                    <img src="./resources/images/donation3svg.svg" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• LG재단</h4>
+                    <span> LG 그룹이 운영하는 기업의 사회적 기부와 경영이념을 실현한 LG의 사회복지 재단</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://www.jasunnambi.or.kr/main/main.php" target="_blank">
+                    <img src="./resources/images/donation4.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 구세군자선냄비본부</h4>
+                    <span>기독교 교회인 동시에 사회봉사단체로 세계112개국에서 활발한 사회사업을 전개하는 구세군의 이웃사랑운동을 대표하는 자선냄비 운동</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://msf.or.kr/" target="_blank">
+                    <img src="./resources/images/donation5.svg" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 국경없는 의사회</h4>
+                    <span>전쟁, 기아, 질병, 자연재해등 생존을 위협받는 이들을 치료하는 국경없는의사회</span>
+                </div>
+            </div>
+            <div class="donation-card" >
+                <a href="https://www.icnpm.org/" target="_blank">
+                    <img src="./resources/images/donation6.webp" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 기부문화연구소</h4>
+                    <span> 전문적, 지속적, 체계적인 모금개발을 위한 자료조사, 연구, 지식제공</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="http://www.thecircle.or.kr/kor/main/main.html" target="_blank">
+                    <img src="./resources/images/donation7.svg" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 동그라미재단</h4>
+                    <span> 모두에게 공평한 기회가 주어지는 사회를 표방하며, 지역의 혁신과 변화를 위한 창업지원 프로젝트, 세발자전거 멘토링, 공간나눔사업, 비영리리더스쿨, 연구사업을 수행함</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://www.miral.org/main/main.asp" target="_blank">
+                    <img src="./resources/images/donation8.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 밀알복지재단</h4>
+                    <span>  국제개발협력NGO 밀알복지재단, 국내아동결연, 해외아동결연, 독거노인 지원, 빈곤 장애아동 저소득가정 지원</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://www.busrugy.or.kr/" target="_blank">
+                    <img src="./resources/images/donation9.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 부스러기사랑나눔회</h4>
+                    <span> 빈곤아동/청소년 나눔사업, 아동결연 후원, 아동청소년 사회복지시설 운영, 지역아동센터운영지원, 기부참여 안내</span>
+                </div>
+            </div>
+            <div class="donation-card">
+                <a href="https://chest.or.kr/base.do" target="_blank">
+                    <img src="./resources/images/donation10.png" alt="">
+                </a>
+                <div class="card-left">
+                    <h4>• 사회복지공동모금회</h4>
+                    <span>  '사랑의 열매'를 상징으로 나눔문화 확산을 통해 아동·청소년, 장애인, 노인, 여성, 지역사회 등 다양한 분야의 복지사업을 지원하는 국내 최대의 모금 및 배분기관</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="blank"></div>
+
+        <div class="main-last">
+
+        </div>
+    </div>
+</body>
+
+</html>

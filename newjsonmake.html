@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 파일 정제</title>
+</head>
+<body>
+    
+    
+    <script>
+        let v_ajax = new XMLHttpRequest();
+        v_ajax.open("GET", "./freefood.json");
+
+        v_ajax.onload = function(){
+            let v_json = JSON.parse(v_ajax.response);
+            console.log(v_json);
+            console.log(v_json['records']);
+            console.log(v_json['records'][2]['경도']);
+
+            for(let i = v_json['records'].length-1; i >= 0; i--){
+                if(v_json['records'][i]['경도'] == "" || v_json['records'][i]['위도'] == ""){
+                    v_json['records'].splice(i,1);
+                }
+            }
+
+            console.log(v_json['records']);
+            console.log(v_json);
+            console.log(JSON.stringify(v_json));
+
+        } 
+        v_ajax.send();
+
+    </script>
+
+</body>
+</html>

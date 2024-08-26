@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    
+
+    <!-- firebase 라이브러리 CDN 링크로 가져오기 -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <!-- firebase 개인 SDK 가져오기 -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcOIX8oaWw9BuAudj3768SGT5RL7aw9lA",
+            authDomain: "fir-study-bf590.firebaseapp.com",
+            projectId: "fir-study-bf590",
+            storageBucket: "fir-study-bf590.appspot.com",
+            messagingSenderId: "823726923538",
+            appId: "1:823726923538:web:a2b42d3051d7ca464b1dcb",
+            measurementId: "G-FFJ89FMQRP"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>회원가입 페이지</h1>
+        </div>
+        <!-- 구글 firebase의 인증서비스 중 이메일/ 비밀번호 회원가입 -->
+        <div>
+            <input id="inputId" type="text" placeholder="아이디">
+        </div>
+        <div>
+            <input id="inputPw" type="password" placeholder="비밀번호">
+        </div>
+        <div>
+            <input id="inputName" type="text" placeholder="닉네임">
+        </div>
+        <button id="signUpBtn">회원가입</button>
+    </div>
+
+    <script>
+        const db = firebase.firestore();
+
+        document.getElementById('signUpBtn').addEventListener('click', () => {
+            let v_inputId = document.getElementById('inputId').value;
+            let v_inputPw = document.getElementById('inputPw').value;
+            let v_inputName = document.getElementById('inputName').value;
+
+            console.log(v_inputId);
+            console.log(v_inputPw);
+            console.log(v_inputName);
+
+            // collection은 데이터를 담는 테이블이라 생각
+            // member 테이블에 회원정보를 담을 예정
+            // member 컬렉션에 회원 document를 담을 예정
+            // .collection("member") member 컬렉션에 접근
+            // .doc(v_inputId) 사용자가 입력한 아이디로 document 선택
+            // .set(json객체) 해당 document 내부에 데이터 추가
+            /*
+                회원정보에 대한 JSON 객체 생성
+                {
+                    memId: 'akow283',
+                    memPw: 'a123',
+                    memName: '이효신'
+                }
+            */
+
+            let v_json = {};
+            v_json['memId'] = v_inputId;
+            v_json['memPw'] = v_inputPw;
+            v_json['memName'] = v_inputName;
+
+
+            // firestore 내 member collection 에 사용자 id에 대한 document에 v_json을 추가
+            db.collection("member").doc(v_inputId).set(v_json)
+                .then(() => {
+                    // 회원가입이 끝난 시점
+                    console.log("Document successfully written!");
+                    alert('회원가입이 완료되었습니다. 로그인해주세요.')
+                    // 회원가입 끝난 후 페이지 이동
+                    location.href = "./loginpage.html";
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+
+        });
+
+
+
+    </script>
+
+</body>
+
+
+</html>

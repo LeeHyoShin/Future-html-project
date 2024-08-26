@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+
+    <style>
+        
+
+
+    </style>
+
+    <!-- firebase 라이브러리 CDN 링크로 가져오기 -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <!-- firebase 개인 SDK 가져오기 -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcOIX8oaWw9BuAudj3768SGT5RL7aw9lA",
+            authDomain: "fir-study-bf590.firebaseapp.com",
+            projectId: "fir-study-bf590",
+            storageBucket: "fir-study-bf590.appspot.com",
+            messagingSenderId: "823726923538",
+            appId: "1:823726923538:web:a2b42d3051d7ca464b1dcb",
+            measurementId: "G-FFJ89FMQRP"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>로그인 페이지</h1>
+        </div>
+        <div>
+            <input id="inputId" type="text" placeholder="아이디">
+        </div>
+        <div>
+            <input id="inputPw" type="password" placeholder="비밀번호">
+        </div>
+        <button id="signInBtn">로그인</button>
+        <a href="./signupage.html">
+            <button id="singUpBtn">회원가입 하기</button>
+        </a>
+    </div>
+    
+
+    <script>
+
+        const db = firebase.firestore();
+
+        document.getElementById('signInBtn').addEventListener('click', () => {
+            let v_inputId = document.getElementById('inputId').value;
+            let v_inputPw = document.getElementById('inputPw').value;
+
+            console.log(v_inputId);
+            console.log(v_inputPw);
+
+            // member 라는 collection 내부에서 식별키가 ehs948인
+            // document를 가져오기
+            db.collection('member').doc(v_inputId).get()
+                .then((result) => {
+                    // result에 DB로부터 가져온 데이터가 담겨있음
+                    console.log(result);
+
+                    // result.data() 하면 데이터 항목만 JSON 객체로 리턴
+                    let v_data = result.data();
+                    console.log(v_data); // 존재하지 않는 아이디 입력시 undefind 뜸
+
+                    if (!v_data) {
+                        alert('유효하지 않은 아이디 입니다.');
+                        return;
+                    }
+
+                    // v_data 의 memPw 값과 현재 페이지에서 입력받은 비밀번호가 일치하는지 체크
+                    if (v_data['memPw'] == v_inputPw) {
+                        // 로그인 성공
+                        // 로그인 성공 상태를 어디에 저장할까?
+                        // Authentication 을 이용한 로그인 시 로그인정보가
+                        // Authentication 에 기록됨
+                        // 브라우저에는 localStorage가 있으며
+                        // sesstionStorage에 저장된 데이터는 서버를 재기동하거나
+                        // 브라우저를 종료하면 사라짐
+                        // sesstionStorage 사용법은 localStorage와 같다.
+                        sessionStorage.setItem('login', JSON.stringify(v_data));
+
+                        // 홈화면으로 이동 (이후 뒤로가기를 해도 로그인 페이지가 열리지 않게)
+                        // location.href = "./index.html";
+                        location.replace("./index.html");
+
+                    } else {
+                        alert('유효하지 않은 비밀번호 입니다.');
+                    }
+
+
+
+                })
+                .catch((error) => {
+                    console.log('에러발생', error);
+                });
+
+        });
+
+        
+
+
+
+    </script>
+
+</body>
+
+</html>

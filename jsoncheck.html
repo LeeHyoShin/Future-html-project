@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json 파일 체크</title>
+</head>
+<body>
+    
+
+    <script>
+        let v_ajax = new XMLHttpRequest();
+        v_ajax.open("GET", "./newfreefood.json");
+
+        v_ajax.onload = function(){
+            let v_json = JSON.parse(v_ajax.response);
+            console.log(v_json);
+        } 
+        v_ajax.send();
+
+    </script>
+
+</body>
+</html>
